@@ -4,15 +4,22 @@ import com.stock.management.app.ApiResponse;
 import com.stock.management.app.service.PortfolioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @Slf4j
 public class PortfolioController {
 
     @Autowired
     PortfolioService portfolioService;
+
+    @RequestMapping(value = "/")
+    public String index(Model model) {
+        model.addAttribute("list", portfolioService.getPortfolioList());
+        return "index2";
+    }
 
     @RequestMapping(value = "/portfolio/list", method = RequestMethod.GET)
     public String getPortfolios(Model model) {
@@ -43,7 +50,5 @@ public class PortfolioController {
             return ApiResponse.fail(e.getMessage());
         }
     }
-
-
 
 }

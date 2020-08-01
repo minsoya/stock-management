@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class PortfolioItem extends BaseEntity {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     private Integer quantity;
 

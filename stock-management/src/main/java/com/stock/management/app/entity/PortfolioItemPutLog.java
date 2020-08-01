@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class PortfolioItemPutLog extends BaseEntity {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @JoinColumn(name = "portfolioItemId", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.LAZY)

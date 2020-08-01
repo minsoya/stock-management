@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Portfolio extends BaseEntity {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     @NonNull
     private String name;
 }
